@@ -22,8 +22,9 @@ def solve_part1(ranges: list[Tuple[int, int]]) -> str:
 
 def solve_part2(ranges):
     invalid_ids: list[int] = []
+    regex = re.compile(r"^(.+)(\1+)$")
     for start, end in ranges:
         ids = range(start, end + 1)
-        invalid_ids += [x for x in ids if re.match(r"^(.+)(\1+)$", str(x))]
+        invalid_ids += [x for x in ids if regex.match(str(x))]
 
     return str(sum(invalid_ids))

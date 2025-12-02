@@ -37,7 +37,7 @@ def solve_part2 (puzzle_input: list[Tuple[str, int]]) -> str:
 
 
 def count_passes(position: int, direction: str, distance: int) -> Tuple[int, int]:
-    count=0
+    count = 0
     start = position
 
     position += distance if direction == "R" else -distance
