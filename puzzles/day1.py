@@ -55,6 +55,11 @@ def count_passes(position: int, direction: str, distance: int) -> Tuple[int, int
     return count, position
 
 
+def read_input(puzzle_input: list[str]) -> list[Tuple[str, int]]:
+    return [(line[:1], int(line[1:])) for line in puzzle_input]
+
+
+# I was going insane - needed to test my sanity
 def assert_count_passes():
     # right
     assert count_passes(78, "R", 22) == (1, 0)
@@ -69,9 +74,6 @@ def assert_count_passes():
     assert count_passes(25, "L", 130) == (2, 95)
     assert count_passes(0, "L", 5) == (0, 95)
 
-
-def read_input(puzzle_input: list[str]) -> list[Tuple[str, int]]:
-    return [(line[:1], int(line[1:])) for line in puzzle_input]
 
 if __name__ == "__main__":
     assert_count_passes()

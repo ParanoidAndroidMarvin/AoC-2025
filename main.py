@@ -71,7 +71,7 @@ def draw_run_result(stdscr, test=False):
         stdscr.addstr(
             8,
             0,
-            "[Backspace] Menu   [1]Submit Part 1   [2]Submit Part 2   [Esc]Exit",
+            "[Backspace]Menu   [1]Submit Part 1   [2]Submit Part 2   [Esc]Exit",
         )
 
     stdscr.refresh()
@@ -86,7 +86,7 @@ def draw_submit(stdscr, part):
         res = aoc_api.submit_solution(selected_day, part, solution[part - 1])
         stdscr.addstr(0, 0, res)
 
-    stdscr.addstr(2, 0, "[Backspace] Menu  [Esc] Exit")
+    stdscr.addstr(2, 0, "[Backspace]Menu  [Esc]Exit")
     stdscr.refresh()
 
 
