@@ -3,7 +3,7 @@ import time
 from typing import Tuple
 
 import aoc_api
-from puzzles import day1
+from puzzles import day1, day2
 
 selected_day = 1
 solution: Tuple[str, str] | None = None
@@ -11,6 +11,7 @@ in_menu = True
 
 puzzles = {
     "Secret Entrance": day1.solve,
+    "Gift Shop": day2.solve,
 }
 
 
