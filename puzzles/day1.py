@@ -7,11 +7,11 @@ MIN_VALUE = 0
 
 
 def solve(puzzle_input: list[str]) -> Tuple[str, str]:
-    puzzle_input = read_input(puzzle_input)
-    return solve_part1(puzzle_input), solve_part2(puzzle_input)
+    puzzle_input = _read_input(puzzle_input)
+    return _solve_part1(puzzle_input), _solve_part2(puzzle_input)
 
 
-def solve_part1 (puzzle_input: list[Tuple[str, int]]) -> str:
+def _solve_part1 (puzzle_input: list[Tuple[str, int]]) -> str:
     count = 0
     position = START_VALUE
 
@@ -25,18 +25,18 @@ def solve_part1 (puzzle_input: list[Tuple[str, int]]) -> str:
     return str(count)
 
 
-def solve_part2 (puzzle_input: list[Tuple[str, int]]) -> str:
+def _solve_part2 (puzzle_input: list[Tuple[str, int]]) -> str:
     count = 0
     position = START_VALUE
 
     for (direction, distance) in puzzle_input:
-        passes, position = count_passes(position, direction, distance)
+        passes, position = _count_passes(position, direction, distance)
         count += passes
 
     return str(count)
 
 
-def count_passes(position: int, direction: str, distance: int) -> Tuple[int, int]:
+def _count_passes(position: int, direction: str, distance: int) -> Tuple[int, int]:
     count = 0
     start = position
 
@@ -55,25 +55,25 @@ def count_passes(position: int, direction: str, distance: int) -> Tuple[int, int
     return count, position
 
 
-def read_input(puzzle_input: list[str]) -> list[Tuple[str, int]]:
+def _read_input(puzzle_input: list[str]) -> list[Tuple[str, int]]:
     return [(line[:1], int(line[1:])) for line in puzzle_input]
 
 
 # I was going insane - needed to test my sanity
-def assert_count_passes():
+def _assert_count_passes():
     # right
-    assert count_passes(78, "R", 22) == (1, 0)
-    assert count_passes(78, "R", 122) == (2, 0)
-    assert count_passes(75, "R", 30) == (1, 5)
-    assert count_passes(75, "R", 130) == (2, 5)
-    assert count_passes(0, "R", 100) == (1, 0)
-    # left
-    assert count_passes(22, "L", 22) == (1, 0)
-    assert count_passes(22, "L", 122) == (2, 0)
-    assert count_passes(25, "L", 30) == (1, 95)
-    assert count_passes(25, "L", 130) == (2, 95)
-    assert count_passes(0, "L", 5) == (0, 95)
+    assert _count_passes(78, "R", 22) == (1, 0)
+    assert _count_passes(78, "R", 122) == (2, 0)
+    assert _count_passes(75, "R", 30) == (1, 5)
+    assert _count_passes(75, "R", 130) == (2, 5)
+    assert _count_passes(0, "R", 100) == (1, 0)
+    # left_
+    assert _count_passes(22, "L", 22) == (1, 0)
+    assert _count_passes(22, "L", 122) == (2, 0)
+    assert _count_passes(25, "L", 30) == (1, 95)
+    assert _count_passes(25, "L", 130) == (2, 95)
+    assert _count_passes(0, "L", 5) == (0, 95)
 
 
 if __name__ == "__main__":
-    assert_count_passes()
+    _assert_count_passes()

@@ -3,17 +3,17 @@ from typing import Tuple
 
 def solve(puzzle_input: list[str]) -> Tuple[str, str]:
     battery_banks = [[int(battery) for battery in list(bank)] for bank in puzzle_input]
-    return solve_part1(battery_banks), solve_part2(battery_banks)
+    return _solve_part1(battery_banks), _solve_part2(battery_banks)
 
 
-def solve_part1(battery_banks: list[list[int]]) -> str:
+def _solve_part1(battery_banks: list[list[int]]) -> str:
     total_power = 0
     for bank in battery_banks:
         total_power += _get_max_power(bank)
     return str(total_power)
 
 
-def solve_part2(battery_banks: list[list[int]]) -> str:
+def _solve_part2(battery_banks: list[list[int]]) -> str:
     total_power = 0
     for bank in battery_banks:
         total_power += _get_max_power2(bank)
