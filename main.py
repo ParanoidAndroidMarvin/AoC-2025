@@ -3,7 +3,7 @@ import time
 from typing import Tuple
 
 import aoc_api
-from puzzles import day1, day2, day3
+from puzzles import day1, day2, day3, day4
 
 selected_day = 1
 solution: Tuple[str, str] | None = None
@@ -12,7 +12,8 @@ in_menu = True
 puzzles = {
     "Secret Entrance": day1.solve,
     "Gift Shop": day2.solve,
-    "Lobby": day3.solve
+    "Lobby": day3.solve,
+    "Printing Department": day4.solve
 }
 
 
@@ -23,9 +24,9 @@ def draw_menu(stdscr):
     stdscr.addstr(3, 0, "Choose puzzle:")
 
     for i, name in enumerate(puzzles.keys(), start=1):
-        selector = ">" if selected_day == i else " "
+        sel = ">" if selected_day == i else " "
         endsel = "<" if selected_day == i else " "
-        stdscr.addstr(4 + i, 0, f"{selector} Day {i}: {name} {endsel}")
+        stdscr.addstr(4 + i, 0, f"{sel} Day {i}: {name} {endsel}")
 
     stdscr.addstr(
         6 + len(puzzles),
