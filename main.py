@@ -3,7 +3,7 @@ import time
 from typing import Tuple
 
 import aoc_api
-from puzzles import day1, day2, day3, day4
+from puzzles import day1, day2, day3, day4, day5
 
 selected_day = 1
 solution: Tuple[str, str] | None = None
@@ -13,7 +13,8 @@ puzzles = {
     "Secret Entrance": day1.solve,
     "Gift Shop": day2.solve,
     "Lobby": day3.solve,
-    "Printing Department": day4.solve
+    "Printing Department": day4.solve,
+    "Cafeteria": day5.solve
 }
 
 
